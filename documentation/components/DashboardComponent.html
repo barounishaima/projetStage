@@ -1,0 +1,2111 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>stockmanajement documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">stockmanajement documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  DashboardComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/dashboard/dashboard.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-dashboard</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./dashboard.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./dashboard.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/dashboard/dashboard.component.ts:9</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-dashboard&#x27;,
+  templateUrl: &#x27;./dashboard.component.html&#x27;,
+  styleUrls: [&#x27;./dashboard.component.css&#x27;]
+})
+export class DashboardComponent {
+  constructor(private router:Router){
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;div&quot;&gt;
+    &lt;div class&#x3D;&quot;div-2&quot;&gt;
+      &lt;div class&#x3D;&quot;div-3&quot;&gt;
+        &lt;div class&#x3D;&quot;div-4&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;div-5&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;div-6&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;div-7&quot;&gt;
+        &lt;div class&#x3D;&quot;div-8&quot;&gt;
+          &lt;img
+            loading&#x3D;&quot;lazy&quot;
+            src&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/02a2815fe06207a46aa3dc9a6829d22f86ae8b9e3cc0a36027135ad0b9b8d536?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+            class&#x3D;&quot;img&quot;
+          /&gt;
+        &lt;/div&gt;
+        &lt;img
+          loading&#x3D;&quot;lazy&quot;
+          src&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/dfc93e7f977965da75cbc5aaeb433ec87285471afb58542b39411b6e88f7dfb5?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+          class&#x3D;&quot;img-2&quot;
+        /&gt;
+        &lt;span class&#x3D;&quot;span&quot;&gt;
+          &lt;img
+            loading&#x3D;&quot;lazy&quot;
+            srcset&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+            class&#x3D;&quot;img-3&quot;
+          /&gt;
+          &lt;div class&#x3D;&quot;div-9&quot;&gt;Ann Lee&lt;/div&gt;
+          &lt;img
+            loading&#x3D;&quot;lazy&quot;
+            src&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/b067503611cea5c9039532bffe5c515fa5d31c5a07dfd919d713af98604f5fec?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+            class&#x3D;&quot;img-4&quot;
+          /&gt;
+        &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;div-10&quot;&gt;
+      &lt;div class&#x3D;&quot;div-11&quot;&gt;
+        &lt;div class&#x3D;&quot;div-12&quot;&gt;&lt;/div&gt;
+        &lt;span class&#x3D;&quot;span-2&quot;&gt;
+          &lt;img
+            loading&#x3D;&quot;lazy&quot;
+            src&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/5d2cbebe994e4f8e468516ebe52fad513fcedc6a22add37c9a46dcaa7efcb29f?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+            class&#x3D;&quot;img-5&quot;
+          /&gt;
+          &lt;div class&#x3D;&quot;div-13&quot;&gt;Dashboard&lt;/div&gt;
+          &lt;span class&#x3D;&quot;span-3&quot;&gt;
+            &lt;img
+              loading&#x3D;&quot;lazy&quot;
+              src&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/5d2cbebe994e4f8e468516ebe52fad513fcedc6a22add37c9a46dcaa7efcb29f?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+              class&#x3D;&quot;img-6&quot;
+            /&gt;
+            &lt;div class&#x3D;&quot;div-14&quot;&gt;In Stock&lt;/div&gt;
+          &lt;/span&gt;
+          &lt;span class&#x3D;&quot;span-4&quot;&gt;
+            &lt;img
+              loading&#x3D;&quot;lazy&quot;
+              src&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/5d2cbebe994e4f8e468516ebe52fad513fcedc6a22add37c9a46dcaa7efcb29f?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+              class&#x3D;&quot;img-7&quot;
+            /&gt;
+            &lt;div class&#x3D;&quot;div-15&quot;&gt;Products&lt;/div&gt;
+          &lt;/span&gt;
+          &lt;span class&#x3D;&quot;span-5&quot;&gt;
+            &lt;img
+              loading&#x3D;&quot;lazy&quot;
+              src&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/5d2cbebe994e4f8e468516ebe52fad513fcedc6a22add37c9a46dcaa7efcb29f?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+              class&#x3D;&quot;img-8&quot;
+            /&gt;
+            &lt;div class&#x3D;&quot;div-16&quot;&gt;Sales&lt;/div&gt;
+          &lt;/span&gt;
+          &lt;span class&#x3D;&quot;span-6&quot;&gt;
+            &lt;img
+              loading&#x3D;&quot;lazy&quot;
+              src&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/5d2cbebe994e4f8e468516ebe52fad513fcedc6a22add37c9a46dcaa7efcb29f?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+              class&#x3D;&quot;img-9&quot;
+            /&gt;
+            &lt;div class&#x3D;&quot;div-17&quot;&gt;Orders&lt;/div&gt;
+          &lt;/span&gt;
+          &lt;span class&#x3D;&quot;span-7&quot;&gt;
+            &lt;img
+              loading&#x3D;&quot;lazy&quot;
+              src&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/5d2cbebe994e4f8e468516ebe52fad513fcedc6a22add37c9a46dcaa7efcb29f?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+              class&#x3D;&quot;img-10&quot;
+            /&gt;
+            &lt;div class&#x3D;&quot;div-18&quot;&gt;Users&lt;/div&gt;
+          &lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;div-19&quot;&gt;
+        &lt;div class&#x3D;&quot;div-20&quot;&gt;
+          &lt;div class&#x3D;&quot;div-21&quot;&gt;
+            &lt;div class&#x3D;&quot;column&quot;&gt;
+              &lt;span class&#x3D;&quot;span-8&quot;&gt;
+                &lt;div class&#x3D;&quot;div-22&quot;&gt;Revenue&lt;/div&gt;
+                &lt;div class&#x3D;&quot;div-23&quot;&gt;
+                  &lt;img
+                    loading&#x3D;&quot;lazy&quot;
+                    srcset&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+                    class&#x3D;&quot;img-11&quot;
+                  /&gt;
+                  &lt;span class&#x3D;&quot;span-9&quot;&gt;
+                    &lt;img
+                      loading&#x3D;&quot;lazy&quot;
+                      src&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/f75c221b2b9ec4f99024612ea12aae65fbbbcdced7cea68052eb90882bf2b918?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+                      class&#x3D;&quot;img-12&quot;
+                    /&gt;
+                    &lt;div class&#x3D;&quot;div-24&quot;&gt;30,000&lt;/div&gt;
+                  &lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;column-2&quot;&gt;
+              &lt;span class&#x3D;&quot;span-10&quot;&gt;
+                &lt;div class&#x3D;&quot;div-25&quot;&gt;Sales Return&lt;/div&gt;
+                &lt;div class&#x3D;&quot;div-26&quot;&gt;
+                  &lt;img
+                    loading&#x3D;&quot;lazy&quot;
+                    srcset&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+                    class&#x3D;&quot;img-13&quot;
+                  /&gt;
+                  &lt;span class&#x3D;&quot;span-11&quot;&gt;
+                    &lt;img
+                      loading&#x3D;&quot;lazy&quot;
+                      src&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/df41737857c1c60daeee7c2ed6a6ddba1a19b22120c11200e2236f7bbaf3e9a4?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+                      class&#x3D;&quot;img-14&quot;
+                    /&gt;
+                    &lt;div class&#x3D;&quot;div-27&quot;&gt;30,000&lt;/div&gt;
+                  &lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;column-3&quot;&gt;
+              &lt;span class&#x3D;&quot;span-12&quot;&gt;
+                &lt;div class&#x3D;&quot;div-28&quot;&gt;Purchase&lt;/div&gt;
+                &lt;div class&#x3D;&quot;div-29&quot;&gt;
+                  &lt;img
+                    loading&#x3D;&quot;lazy&quot;
+                    srcset&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+                    class&#x3D;&quot;img-15&quot;
+                  /&gt;
+                  &lt;span class&#x3D;&quot;span-13&quot;&gt;
+                    &lt;img
+                      loading&#x3D;&quot;lazy&quot;
+                      src&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/4600fff65fd01ace8d17eeacd7fd04a055406ee258b6473334932765594d3b11?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+                      class&#x3D;&quot;img-16&quot;
+                    /&gt;
+                    &lt;div class&#x3D;&quot;div-30&quot;&gt;30,000&lt;/div&gt;
+                  &lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;column-4&quot;&gt;
+              &lt;span class&#x3D;&quot;span-14&quot;&gt;
+                &lt;div class&#x3D;&quot;div-31&quot;&gt;Income&lt;/div&gt;
+                &lt;div class&#x3D;&quot;div-32&quot;&gt;
+                  &lt;img
+                    loading&#x3D;&quot;lazy&quot;
+                    srcset&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+                    class&#x3D;&quot;img-17&quot;
+                  /&gt;
+                  &lt;span class&#x3D;&quot;span-15&quot;&gt;
+                    &lt;img
+                      loading&#x3D;&quot;lazy&quot;
+                      src&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/f75c221b2b9ec4f99024612ea12aae65fbbbcdced7cea68052eb90882bf2b918?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+                      class&#x3D;&quot;img-18&quot;
+                    /&gt;
+                    &lt;div class&#x3D;&quot;div-33&quot;&gt;30,000&lt;/div&gt;
+                  &lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;div-34&quot;&gt;
+          &lt;div class&#x3D;&quot;div-35&quot;&gt;
+            &lt;div class&#x3D;&quot;column-5&quot;&gt;
+              &lt;div class&#x3D;&quot;div-36&quot;&gt;
+                &lt;div class&#x3D;&quot;div-37&quot;&gt;
+                  &lt;div class&#x3D;&quot;div-38&quot;&gt;
+                    &lt;div class&#x3D;&quot;column&quot;&gt;
+                      &lt;div class&#x3D;&quot;div-39&quot;&gt;
+                        &lt;div class&#x3D;&quot;div-40&quot;&gt;&lt;/div&gt;
+                        &lt;div class&#x3D;&quot;div-41&quot;&gt;&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;column-6&quot;&gt;
+                      &lt;div class&#x3D;&quot;div-42&quot;&gt;
+                        &lt;div class&#x3D;&quot;div-43&quot;&gt;&lt;/div&gt;
+                        &lt;div class&#x3D;&quot;div-44&quot;&gt;&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;column-7&quot;&gt;
+                      &lt;div class&#x3D;&quot;div-45&quot;&gt;
+                        &lt;div class&#x3D;&quot;div-46&quot;&gt;&lt;/div&gt;
+                        &lt;div class&#x3D;&quot;div-47&quot;&gt;&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;column-8&quot;&gt;
+                      &lt;div class&#x3D;&quot;div-48&quot;&gt;
+                        &lt;div class&#x3D;&quot;div-49&quot;&gt;&lt;/div&gt;
+                        &lt;div class&#x3D;&quot;div-50&quot;&gt;&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;column-9&quot;&gt;
+              &lt;span class&#x3D;&quot;span-16&quot;&gt;
+                &lt;div class&#x3D;&quot;div-51&quot;&gt;Top selling Products&lt;/div&gt;
+                &lt;div class&#x3D;&quot;div-52&quot;&gt;&lt;/div&gt;
+              &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;div-53&quot;&gt;
+          &lt;div class&#x3D;&quot;div-54&quot;&gt;
+            &lt;div class&#x3D;&quot;column-10&quot;&gt;
+              &lt;div class&#x3D;&quot;div-55&quot;&gt;
+                &lt;span class&#x3D;&quot;span-17&quot;&gt;Stock Alert&lt;/span&gt;
+                &lt;span class&#x3D;&quot;span-18&quot;&gt;
+                  &lt;div class&#x3D;&quot;div-56&quot;&gt;order ID&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-57&quot;&gt;Date&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-58&quot;&gt;Quantity&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-59&quot;&gt;Alert amt.&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-60&quot;&gt;Status&lt;/div&gt;
+                &lt;/span&gt;
+                &lt;span class&#x3D;&quot;span-19&quot;&gt;
+                  &lt;div class&#x3D;&quot;div-61&quot;&gt;order ID&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-62&quot;&gt;Date&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-63&quot;&gt;Quantity&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-64&quot;&gt;Alert amt.&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-65&quot;&gt;Status&lt;/div&gt;
+                &lt;/span&gt;
+                &lt;span class&#x3D;&quot;span-20&quot;&gt;
+                  &lt;div class&#x3D;&quot;div-66&quot;&gt;order ID&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-67&quot;&gt;Date&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-68&quot;&gt;Quantity&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-69&quot;&gt;Alert amt.&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-70&quot;&gt;Status&lt;/div&gt;
+                &lt;/span&gt;
+                &lt;span class&#x3D;&quot;span-21&quot;&gt;
+                  &lt;div class&#x3D;&quot;div-71&quot;&gt;order ID&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-72&quot;&gt;Date&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-73&quot;&gt;Quantity&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-74&quot;&gt;Alert amt.&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-75&quot;&gt;Status&lt;/div&gt;
+                &lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;column-11&quot;&gt;
+              &lt;div class&#x3D;&quot;div-76&quot;&gt;
+                &lt;span class&#x3D;&quot;span-22&quot;&gt;Top selling Products&lt;/span&gt;
+                &lt;span class&#x3D;&quot;span-23&quot;&gt;
+                  &lt;div class&#x3D;&quot;div-77&quot;&gt;order ID&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-78&quot;&gt;Quantity&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-79&quot;&gt;Alert amt.&lt;/div&gt;
+                &lt;/span&gt;
+                &lt;span class&#x3D;&quot;span-24&quot;&gt;
+                  &lt;div class&#x3D;&quot;div-80&quot;&gt;order ID&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-81&quot;&gt;Quantity&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-82&quot;&gt;Alert amt.&lt;/div&gt;
+                &lt;/span&gt;
+                &lt;span class&#x3D;&quot;span-25&quot;&gt;
+                  &lt;div class&#x3D;&quot;div-83&quot;&gt;order ID&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-84&quot;&gt;Quantity&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-85&quot;&gt;Alert amt.&lt;/div&gt;
+                &lt;/span&gt;
+                &lt;span class&#x3D;&quot;span-26&quot;&gt;
+                  &lt;div class&#x3D;&quot;div-86&quot;&gt;order ID&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-87&quot;&gt;Quantity&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;div-88&quot;&gt;Alert amt.&lt;/div&gt;
+                &lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./dashboard.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.div {
+    justify-content: center;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1),
+      0px 40px 87px 0px rgba(0, 0, 0, 0.1),
+      0px 159px 159px 0px rgba(0, 0, 0, 0.09),
+      1px 357px 214px 0px rgba(0, 0, 0, 0.05),
+      1px 635px 254px 0px rgba(0, 0, 0, 0.01),
+      2px 992px 278px 0px rgba(0, 0, 0, 0);
+    background-color: #edf0f2;
+    display: flex;
+    flex-direction: column;
+  }
+  .div-2 {
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    padding: 10px 25px;
+  }
+  @media (max-width: 991px) {
+    .div-2 {
+      max-width: 100%;
+      flex-wrap: wrap;
+      padding: 0 20px;
+    }
+  }
+  .div-3 {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+    padding: 9px 10px;
+  }
+  .div-4 {
+    background-color: #000;
+    height: 2px;
+  }
+  .div-5 {
+    background-color: #000;
+    margin-top: 8px;
+    height: 2px;
+  }
+  .div-6 {
+    background-color: #000;
+    margin-top: 8px;
+    height: 2px;
+  }
+  .div-7 {
+    justify-content: center;
+    align-self: stretch;
+    display: flex;
+    gap: 15px;
+    padding: 5px 23px;
+  }
+  @media (max-width: 991px) {
+    .div-7 {
+      padding: 0 20px;
+    }
+  }
+  .div-8 {
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #eaeaea;
+    align-self: center;
+    display: flex;
+    aspect-ratio: 1;
+    flex-direction: column;
+    width: 34px;
+    height: 34px;
+    margin: auto 0;
+    padding: 0 5px;
+  }
+  .img {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    overflow: hidden;
+  }
+  .img-2 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 24px;
+    overflow: hidden;
+    align-self: center;
+    max-width: 100%;
+    margin: auto 0;
+  }
+  .span {
+    justify-content: center;
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+  }
+  .img-3 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    max-width: 100%;
+  }
+  .div-9 {
+    color: #101540;
+    text-align: center;
+    align-self: center;
+    margin: auto 0;
+    font: 700 14px Poppins, sans-serif;
+  }
+  .img-4 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 8px;
+    overflow: hidden;
+    align-self: center;
+    max-width: 100%;
+    margin: auto 0;
+  }
+  .div-10 {
+    justify-content: space-between;
+    border-radius: 0px 0px 20px 20px;
+    display: flex;
+    width: 100%;
+    gap: 0px;
+  }
+  @media (max-width: 991px) {
+    .div-10 {
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+  }
+  .div-11 {
+    justify-content: space-between;
+    align-items: start;
+    background-color: #101540;
+    display: flex;
+    gap: 18px;
+    padding: 22px 21px 50px 0;
+  }
+  @media (max-width: 991px) {
+    .div-11 {
+      padding-right: 20px;
+    }
+  }
+  .div-12 {
+    background-color: #fff;
+    display: flex;
+    width: 3px;
+    height: 43px;
+    flex-direction: column;
+  }
+  .span-2 {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 5px;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+  }
+  .img-5 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 24px;
+    overflow: hidden;
+    align-self: center;
+    max-width: 100%;
+  }
+  .div-13 {
+    color: #fff;
+    text-align: center;
+    align-self: stretch;
+    white-space: nowrap;
+    font: 400 10px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-13 {
+      white-space: initial;
+    }
+  }
+  .span-3 {
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    margin-top: 15px;
+    flex-direction: column;
+    padding: 0 7px;
+  }
+  .img-6 {
+    aspect-ratio: 1.63;
+    object-fit: contain;
+    object-position: center;
+    width: 39px;
+    overflow: hidden;
+  }
+  .div-14 {
+    color: #fff;
+    text-align: center;
+    align-self: stretch;
+    margin-top: 5px;
+    white-space: nowrap;
+    font: 400 10px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-14 {
+      white-space: initial;
+    }
+  }
+  .span-4 {
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    margin-top: 15px;
+    flex-direction: column;
+  }
+  .img-7 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 24px;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .div-15 {
+    color: #fff;
+    text-align: center;
+    align-self: stretch;
+    margin-top: 5px;
+    white-space: nowrap;
+    font: 400 10px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-15 {
+      white-space: initial;
+    }
+  }
+  .span-5 {
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    margin-top: 15px;
+    flex-direction: column;
+    padding: 0 13px;
+  }
+  .img-8 {
+    aspect-ratio: 1.13;
+    object-fit: contain;
+    object-position: center;
+    width: 27px;
+    overflow: hidden;
+  }
+  .div-16 {
+    color: #fff;
+    text-align: center;
+    align-self: stretch;
+    margin-top: 5px;
+    white-space: nowrap;
+    font: 400 10px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-16 {
+      white-space: initial;
+    }
+  }
+  .span-6 {
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    margin-top: 15px;
+    flex-direction: column;
+    padding: 0 9px;
+  }
+  .img-9 {
+    aspect-ratio: 1.42;
+    object-fit: contain;
+    object-position: center;
+    width: 34px;
+    overflow: hidden;
+  }
+  .div-17 {
+    color: #fff;
+    text-align: center;
+    align-self: stretch;
+    margin-top: 5px;
+    white-space: nowrap;
+    font: 400 10px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-17 {
+      white-space: initial;
+    }
+  }
+  .span-7 {
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    margin-top: 15px;
+    flex-direction: column;
+    padding: 0 12px;
+  }
+  .img-10 {
+    aspect-ratio: 1.17;
+    object-fit: contain;
+    object-position: center;
+    width: 28px;
+    overflow: hidden;
+  }
+  .div-18 {
+    color: #fff;
+    text-align: center;
+    align-self: stretch;
+    margin-top: 5px;
+    white-space: nowrap;
+    font: 400 10px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-18 {
+      white-space: initial;
+    }
+  }
+  .div-19 {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+    padding: 23px 25px;
+  }
+  @media (max-width: 991px) {
+    .div-19 {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+  }
+  .div-20 {
+    justify-content: space-between;
+    padding: 10px;
+  }
+  @media (max-width: 991px) {
+    .div-20 {
+      max-width: 100%;
+    }
+  }
+  .div-21 {
+    gap: 20px;
+    display: flex;
+  }
+  @media (max-width: 991px) {
+    .div-21 {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0px;
+    }
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 25%;
+    margin-left: 0px;
+  }
+  @media (max-width: 991px) {
+    .column {
+      width: 100%;
+    }
+  }
+  .span-8 {
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: 2px 4px 9px 0px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 12px 15px;
+  }
+  @media (max-width: 991px) {
+    .span-8 {
+      margin-top: 25px;
+    }
+  }
+  .div-22 {
+    color: #000;
+    text-align: center;
+    font: 400 15px Poppins, sans-serif;
+  }
+  .div-23 {
+    align-items: center;
+    display: flex;
+    margin-top: 7px;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px 49px 5px 0;
+  }
+  @media (max-width: 991px) {
+    .div-23 {
+      padding-right: 20px;
+    }
+  }
+  .img-11 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 32px;
+    overflow: hidden;
+    max-width: 100%;
+    margin: auto 0;
+  }
+  .span-9 {
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+  }
+  .img-12 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 24px;
+    overflow: hidden;
+    max-width: 100%;
+    margin: auto 0;
+  }
+  .div-24 {
+    justify-content: center;
+    color: #000;
+    text-align: center;
+    align-self: stretch;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 40px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-24 {
+      white-space: initial;
+    }
+  }
+  .column-2 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 25%;
+    margin-left: 20px;
+  }
+  @media (max-width: 991px) {
+    .column-2 {
+      width: 100%;
+    }
+  }
+  .span-10 {
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: 2px 4px 9px 0px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 12px 15px;
+  }
+  @media (max-width: 991px) {
+    .span-10 {
+      margin-top: 25px;
+    }
+  }
+  .div-25 {
+    color: #000;
+    text-align: center;
+    font: 400 15px Poppins, sans-serif;
+  }
+  .div-26 {
+    align-items: center;
+    display: flex;
+    margin-top: 7px;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px 49px 5px 0;
+  }
+  @media (max-width: 991px) {
+    .div-26 {
+      padding-right: 20px;
+    }
+  }
+  .img-13 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 32px;
+    overflow: hidden;
+    max-width: 100%;
+    margin: auto 0;
+  }
+  .span-11 {
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+  }
+  .img-14 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 24px;
+    overflow: hidden;
+    max-width: 100%;
+    margin: auto 0;
+  }
+  .div-27 {
+    justify-content: center;
+    color: #000;
+    text-align: center;
+    align-self: stretch;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 40px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-27 {
+      white-space: initial;
+    }
+  }
+  .column-3 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 25%;
+    margin-left: 20px;
+  }
+  @media (max-width: 991px) {
+    .column-3 {
+      width: 100%;
+    }
+  }
+  .span-12 {
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: 2px 4px 9px 0px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 12px 15px;
+  }
+  @media (max-width: 991px) {
+    .span-12 {
+      margin-top: 25px;
+    }
+  }
+  .div-28 {
+    color: #000;
+    text-align: center;
+    font: 400 15px Poppins, sans-serif;
+  }
+  .div-29 {
+    align-items: center;
+    display: flex;
+    margin-top: 7px;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px 49px 5px 0;
+  }
+  @media (max-width: 991px) {
+    .div-29 {
+      padding-right: 20px;
+    }
+  }
+  .img-15 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 32px;
+    overflow: hidden;
+    max-width: 100%;
+    margin: auto 0;
+  }
+  .span-13 {
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+  }
+  .img-16 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 24px;
+    overflow: hidden;
+    max-width: 100%;
+    margin: auto 0;
+  }
+  .div-30 {
+    justify-content: center;
+    color: #000;
+    text-align: center;
+    align-self: stretch;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 40px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-30 {
+      white-space: initial;
+    }
+  }
+  .column-4 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 25%;
+    margin-left: 20px;
+  }
+  @media (max-width: 991px) {
+    .column-4 {
+      width: 100%;
+    }
+  }
+  .span-14 {
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: 2px 4px 9px 0px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 12px 15px;
+  }
+  @media (max-width: 991px) {
+    .span-14 {
+      margin-top: 25px;
+    }
+  }
+  .div-31 {
+    color: #000;
+    text-align: center;
+    font: 400 15px Poppins, sans-serif;
+  }
+  .div-32 {
+    align-items: center;
+    display: flex;
+    margin-top: 7px;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px 49px 5px 0;
+  }
+  @media (max-width: 991px) {
+    .div-32 {
+      padding-right: 20px;
+    }
+  }
+  .img-17 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 32px;
+    overflow: hidden;
+    max-width: 100%;
+    margin: auto 0;
+  }
+  .span-15 {
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+  }
+  .img-18 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 24px;
+    overflow: hidden;
+    max-width: 100%;
+    margin: auto 0;
+  }
+  .div-33 {
+    justify-content: center;
+    color: #000;
+    text-align: center;
+    align-self: stretch;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 40px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-33 {
+      white-space: initial;
+    }
+  }
+  .div-34 {
+    margin-top: 20px;
+    padding: 10px 0;
+  }
+  @media (max-width: 991px) {
+    .div-34 {
+      max-width: 100%;
+    }
+  }
+  .div-35 {
+    gap: 20px;
+    display: flex;
+  }
+  @media (max-width: 991px) {
+    .div-35 {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0px;
+    }
+  }
+  .column-5 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 66%;
+    margin-left: 0px;
+  }
+  @media (max-width: 991px) {
+    .column-5 {
+      width: 100%;
+    }
+  }
+  .div-36 {
+    align-self: stretch;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 50px 40px;
+  }
+  @media (max-width: 991px) {
+    .div-36 {
+      max-width: 100%;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+  }
+  .div-37 {
+    border-bottom: 2px solid #000;
+    border-left: 2px solid #000;
+    padding: 0 20px;
+  }
+  @media (max-width: 991px) {
+    .div-37 {
+      max-width: 100%;
+    }
+  }
+  .div-38 {
+    gap: 20px;
+    display: flex;
+  }
+  @media (max-width: 991px) {
+    .div-38 {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0px;
+    }
+  }
+  .div-39 {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    gap: 0px;
+  }
+  @media (max-width: 991px) {
+    .div-39 {
+      margin-top: 40px;
+    }
+  }
+  .div-40 {
+    background-color: #ffe55f;
+    display: flex;
+    width: 74px;
+    height: 282px;
+    flex-direction: column;
+  }
+  .div-41 {
+    background-color: #5f6fff;
+    align-self: end;
+    display: flex;
+    margin-top: 27px;
+    width: 75px;
+    height: 254px;
+    flex-direction: column;
+  }
+  .column-6 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 25%;
+    margin-left: 20px;
+  }
+  @media (max-width: 991px) {
+    .column-6 {
+      width: 100%;
+    }
+  }
+  .div-42 {
+    display: flex;
+    flex-grow: 1;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0px;
+  }
+  @media (max-width: 991px) {
+    .div-42 {
+      margin-top: 40px;
+    }
+  }
+  .div-43 {
+    background-color: #ffe55f;
+    display: flex;
+    margin-top: 70px;
+    width: 74px;
+    height: 212px;
+    flex-direction: column;
+  }
+  @media (max-width: 991px) {
+    .div-43 {
+      margin-top: 40px;
+    }
+  }
+  .div-44 {
+    background-color: #5f6fff;
+    align-self: stretch;
+    display: flex;
+    width: 74px;
+    height: 282px;
+    flex-direction: column;
+  }
+  .column-7 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 25%;
+    margin-left: 20px;
+  }
+  @media (max-width: 991px) {
+    .column-7 {
+      width: 100%;
+    }
+  }
+  .div-45 {
+    display: flex;
+    flex-grow: 1;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0px;
+  }
+  @media (max-width: 991px) {
+    .div-45 {
+      margin-top: 40px;
+    }
+  }
+  .div-46 {
+    background-color: #ffe55f;
+    display: flex;
+    margin-top: 70px;
+    width: 74px;
+    height: 212px;
+    flex-direction: column;
+  }
+  @media (max-width: 991px) {
+    .div-46 {
+      margin-top: 40px;
+    }
+  }
+  .div-47 {
+    background-color: #5f6fff;
+    align-self: stretch;
+    display: flex;
+    width: 75px;
+    height: 282px;
+    flex-direction: column;
+  }
+  .column-8 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 25%;
+    margin-left: 20px;
+  }
+  @media (max-width: 991px) {
+    .column-8 {
+      width: 100%;
+    }
+  }
+  .div-48 {
+    display: flex;
+    flex-grow: 1;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0px;
+  }
+  @media (max-width: 991px) {
+    .div-48 {
+      margin-top: 40px;
+    }
+  }
+  .div-49 {
+    background-color: #ffe55f;
+    display: flex;
+    margin-top: 70px;
+    width: 74px;
+    height: 212px;
+    flex-direction: column;
+  }
+  @media (max-width: 991px) {
+    .div-49 {
+      margin-top: 40px;
+    }
+  }
+  .div-50 {
+    background-color: #5f6fff;
+    align-self: stretch;
+    display: flex;
+    width: 74px;
+    height: 282px;
+    flex-direction: column;
+  }
+  .column-9 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 34%;
+    margin-left: 20px;
+  }
+  @media (max-width: 991px) {
+    .column-9 {
+      width: 100%;
+    }
+  }
+  .span-16 {
+    align-items: start;
+    align-self: stretch;
+    border-radius: 15px;
+    border: 1px solid #cbcbcb;
+    box-shadow: 2px 4px 7px 0px rgba(1, 36, 69, 0.25);
+    background-color: #fff;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    width: 100%;
+    padding: 30px 25px;
+  }
+  @media (max-width: 991px) {
+    .span-16 {
+      max-width: 100%;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+  }
+  .div-51 {
+    color: #101540;
+    text-align: center;
+    margin-left: 10px;
+    white-space: nowrap;
+    font: 500 16px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-51 {
+      white-space: initial;
+    }
+  }
+  .div-52 {
+    align-self: stretch;
+    border-radius: 50%;
+    background-color: #101540;
+    display: flex;
+    margin-top: 20px;
+    height: 278px;
+    flex-direction: column;
+  }
+  .div-53 {
+    margin-top: 20px;
+  }
+  @media (max-width: 991px) {
+    .div-53 {
+      max-width: 100%;
+    }
+  }
+  .div-54 {
+    gap: 20px;
+    display: flex;
+  }
+  @media (max-width: 991px) {
+    .div-54 {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0px;
+    }
+  }
+  .column-10 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 67%;
+    margin-left: 0px;
+  }
+  @media (max-width: 991px) {
+    .column-10 {
+      width: 100%;
+    }
+  }
+  .div-55 {
+    justify-content: center;
+    align-self: stretch;
+    border-radius: 10px;
+    border: 1px solid #cbcbcb;
+    box-shadow: 2px 4px 19px 0px rgba(1, 36, 69, 0.25);
+    background-color: #fff;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    width: 100%;
+    padding: 35px 10px;
+  }
+  @media (max-width: 991px) {
+    .div-55 {
+      max-width: 100%;
+      margin-top: 35px;
+    }
+  }
+  .span-17 {
+    color: #000;
+    text-align: center;
+    white-space: nowrap;
+    align-items: start;
+    border-bottom: 1px solid #000;
+    justify-content: center;
+    padding: 10px 60px 10px 31px;
+    font: 500 24px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .span-17 {
+      white-space: initial;
+      max-width: 100%;
+      padding: 0 20px;
+    }
+  }
+  .span-18 {
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
+    padding: 10px 20px 10px 0;
+  }
+  @media (max-width: 991px) {
+    .span-18 {
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+  }
+  .div-56 {
+    color: #000;
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 500 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-56 {
+      white-space: initial;
+    }
+  }
+  .div-57 {
+    color: #000;
+    text-align: center;
+    font: 500 20px Poppins, sans-serif;
+  }
+  .div-58 {
+    color: #000;
+    text-align: center;
+    font: 500 20px Poppins, sans-serif;
+  }
+  .div-59 {
+    color: #000;
+    text-align: center;
+    font: 500 20px Poppins, sans-serif;
+  }
+  .div-60 {
+    color: #000;
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 500 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-60 {
+      white-space: initial;
+    }
+  }
+  .span-19 {
+    display: flex;
+    margin-top: 10px;
+    padding-right: 20px;
+    gap: 10px;
+  }
+  @media (max-width: 991px) {
+    .span-19 {
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+  }
+  .div-61 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-61 {
+      white-space: initial;
+    }
+  }
+  .div-62 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    font: 400 20px Poppins, sans-serif;
+  }
+  .div-63 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    font: 400 20px Poppins, sans-serif;
+  }
+  .div-64 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    font: 400 20px Poppins, sans-serif;
+  }
+  .div-65 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-65 {
+      white-space: initial;
+    }
+  }
+  .span-20 {
+    display: flex;
+    margin-top: 10px;
+    padding-right: 20px;
+    gap: 10px;
+  }
+  @media (max-width: 991px) {
+    .span-20 {
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+  }
+  .div-66 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-66 {
+      white-space: initial;
+    }
+  }
+  .div-67 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    font: 400 20px Poppins, sans-serif;
+  }
+  .div-68 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    font: 400 20px Poppins, sans-serif;
+  }
+  .div-69 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    font: 400 20px Poppins, sans-serif;
+  }
+  .div-70 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-70 {
+      white-space: initial;
+    }
+  }
+  .span-21 {
+    display: flex;
+    margin-top: 10px;
+    padding-right: 20px;
+    gap: 10px;
+  }
+  @media (max-width: 991px) {
+    .span-21 {
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+  }
+  .div-71 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-71 {
+      white-space: initial;
+    }
+  }
+  .div-72 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    font: 400 20px Poppins, sans-serif;
+  }
+  .div-73 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    font: 400 20px Poppins, sans-serif;
+  }
+  .div-74 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    font: 400 20px Poppins, sans-serif;
+  }
+  .div-75 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-75 {
+      white-space: initial;
+    }
+  }
+  .column-11 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 33%;
+    margin-left: 20px;
+  }
+  @media (max-width: 991px) {
+    .column-11 {
+      width: 100%;
+    }
+  }
+  .div-76 {
+    justify-content: center;
+    align-self: stretch;
+    border-radius: 10px;
+    border: 1px solid #cbcbcb;
+    box-shadow: 2px 4px 19px 0px rgba(1, 36, 69, 0.25);
+    background-color: #fff;
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 35px 10px;
+  }
+  @media (max-width: 991px) {
+    .div-76 {
+      margin-top: 35px;
+    }
+  }
+  .span-22 {
+    color: #000;
+    text-align: center;
+    white-space: nowrap;
+    align-items: start;
+    border-bottom: 1px solid #000;
+    justify-content: center;
+    padding: 10px 60px 10px 31px;
+    font: 500 24px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .span-22 {
+      white-space: initial;
+      padding: 0 20px;
+    }
+  }
+  .span-23 {
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
+    padding: 10px 20px 10px 0;
+  }
+  .div-77 {
+    color: #000;
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 500 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-77 {
+      white-space: initial;
+    }
+  }
+  .div-78 {
+    color: #000;
+    text-align: center;
+    font: 500 20px Poppins, sans-serif;
+  }
+  .div-79 {
+    color: #000;
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 500 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-79 {
+      white-space: initial;
+    }
+  }
+  .span-24 {
+    display: flex;
+    margin-top: 10px;
+    padding-right: 20px;
+    gap: 10px;
+  }
+  .div-80 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-80 {
+      white-space: initial;
+    }
+  }
+  .div-81 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    font: 400 20px Poppins, sans-serif;
+  }
+  .div-82 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-82 {
+      white-space: initial;
+    }
+  }
+  .span-25 {
+    display: flex;
+    margin-top: 10px;
+    padding-right: 20px;
+    gap: 10px;
+  }
+  .div-83 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-83 {
+      white-space: initial;
+    }
+  }
+  .div-84 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    font: 400 20px Poppins, sans-serif;
+  }
+  .div-85 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-85 {
+      white-space: initial;
+    }
+  }
+  .span-26 {
+    display: flex;
+    margin-top: 10px;
+    padding-right: 20px;
+    gap: 10px;
+  }
+  .div-86 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-86 {
+      white-space: initial;
+    }
+  }
+  .div-87 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    font: 400 20px Poppins, sans-serif;
+  }
+  .div-88 {
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 20px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-88 {
+      white-space: initial;
+    }}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="div">    <div class="div-2">      <div class="div-3">        <div class="div-4"></div>        <div class="div-5"></div>        <div class="div-6"></div>      </div>      <div class="div-7">        <div class="div-8">          <img            loading="lazy"            src="https://cdn.builder.io/api/v1/image/assets/TEMP/02a2815fe06207a46aa3dc9a6829d22f86ae8b9e3cc0a36027135ad0b9b8d536?apiKey=45c9b4f65b804397b2aa4f0822d27229&"            class="img"          />        </div>        <img          loading="lazy"          src="https://cdn.builder.io/api/v1/image/assets/TEMP/dfc93e7f977965da75cbc5aaeb433ec87285471afb58542b39411b6e88f7dfb5?apiKey=45c9b4f65b804397b2aa4f0822d27229&"          class="img-2"        />        <span class="span">          <img            loading="lazy"            srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a8e5bda2ba3b4012a5a361162a7aae4a3ec58a75a5368f4102b221b1daaddfe?apiKey=45c9b4f65b804397b2aa4f0822d27229&"            class="img-3"          />          <div class="div-9">Ann Lee</div>          <img            loading="lazy"            src="https://cdn.builder.io/api/v1/image/assets/TEMP/b067503611cea5c9039532bffe5c515fa5d31c5a07dfd919d713af98604f5fec?apiKey=45c9b4f65b804397b2aa4f0822d27229&"            class="img-4"          />        </span>      </div>    </div>    <div class="div-10">      <div class="div-11">        <div class="div-12"></div>        <span class="span-2">          <img            loading="lazy"            src="https://cdn.builder.io/api/v1/image/assets/TEMP/5d2cbebe994e4f8e468516ebe52fad513fcedc6a22add37c9a46dcaa7efcb29f?apiKey=45c9b4f65b804397b2aa4f0822d27229&"            class="img-5"          />          <div class="div-13">Dashboard</div>          <span class="span-3">            <img              loading="lazy"              src="https://cdn.builder.io/api/v1/image/assets/TEMP/5d2cbebe994e4f8e468516ebe52fad513fcedc6a22add37c9a46dcaa7efcb29f?apiKey=45c9b4f65b804397b2aa4f0822d27229&"              class="img-6"            />            <div class="div-14">In Stock</div>          </span>          <span class="span-4">            <img              loading="lazy"              src="https://cdn.builder.io/api/v1/image/assets/TEMP/5d2cbebe994e4f8e468516ebe52fad513fcedc6a22add37c9a46dcaa7efcb29f?apiKey=45c9b4f65b804397b2aa4f0822d27229&"              class="img-7"            />            <div class="div-15">Products</div>          </span>          <span class="span-5">            <img              loading="lazy"              src="https://cdn.builder.io/api/v1/image/assets/TEMP/5d2cbebe994e4f8e468516ebe52fad513fcedc6a22add37c9a46dcaa7efcb29f?apiKey=45c9b4f65b804397b2aa4f0822d27229&"              class="img-8"            />            <div class="div-16">Sales</div>          </span>          <span class="span-6">            <img              loading="lazy"              src="https://cdn.builder.io/api/v1/image/assets/TEMP/5d2cbebe994e4f8e468516ebe52fad513fcedc6a22add37c9a46dcaa7efcb29f?apiKey=45c9b4f65b804397b2aa4f0822d27229&"              class="img-9"            />            <div class="div-17">Orders</div>          </span>          <span class="span-7">            <img              loading="lazy"              src="https://cdn.builder.io/api/v1/image/assets/TEMP/5d2cbebe994e4f8e468516ebe52fad513fcedc6a22add37c9a46dcaa7efcb29f?apiKey=45c9b4f65b804397b2aa4f0822d27229&"              class="img-10"            />            <div class="div-18">Users</div>          </span>        </span>      </div>      <div class="div-19">        <div class="div-20">          <div class="div-21">            <div class="column">              <span class="span-8">                <div class="div-22">Revenue</div>                <div class="div-23">                  <img                    loading="lazy"                    srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&"                    class="img-11"                  />                  <span class="span-9">                    <img                      loading="lazy"                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/f75c221b2b9ec4f99024612ea12aae65fbbbcdced7cea68052eb90882bf2b918?apiKey=45c9b4f65b804397b2aa4f0822d27229&"                      class="img-12"                    />                    <div class="div-24">30,000</div>                  </span>                </div>              </span>            </div>            <div class="column-2">              <span class="span-10">                <div class="div-25">Sales Return</div>                <div class="div-26">                  <img                    loading="lazy"                    srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f6f90d61b263177398317ccf5c9be5538eb9e0bf1f2e489d6f0471b2fc963b6?apiKey=45c9b4f65b804397b2aa4f0822d27229&"                    class="img-13"                  />                  <span class="span-11">                    <img                      loading="lazy"                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/df41737857c1c60daeee7c2ed6a6ddba1a19b22120c11200e2236f7bbaf3e9a4?apiKey=45c9b4f65b804397b2aa4f0822d27229&"                      class="img-14"                    />                    <div class="div-27">30,000</div>                  </span>                </div>              </span>            </div>            <div class="column-3">              <span class="span-12">                <div class="div-28">Purchase</div>                <div class="div-29">                  <img                    loading="lazy"                    srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/785f086ce5314c39e52d864e30e94de9fdbd52c6d34d32ba0e15e4a8966c89aa?apiKey=45c9b4f65b804397b2aa4f0822d27229&"                    class="img-15"                  />                  <span class="span-13">                    <img                      loading="lazy"                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/4600fff65fd01ace8d17eeacd7fd04a055406ee258b6473334932765594d3b11?apiKey=45c9b4f65b804397b2aa4f0822d27229&"                      class="img-16"                    />                    <div class="div-30">30,000</div>                  </span>                </div>              </span>            </div>            <div class="column-4">              <span class="span-14">                <div class="div-31">Income</div>                <div class="div-32">                  <img                    loading="lazy"                    srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/b10c14b2cafaacceb349a0ee320423f4e66d74050416a98fd2abbaadd160d287?apiKey=45c9b4f65b804397b2aa4f0822d27229&"                    class="img-17"                  />                  <span class="span-15">                    <img                      loading="lazy"                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/f75c221b2b9ec4f99024612ea12aae65fbbbcdced7cea68052eb90882bf2b918?apiKey=45c9b4f65b804397b2aa4f0822d27229&"                      class="img-18"                    />                    <div class="div-33">30,000</div>                  </span>                </div>              </span>            </div>          </div>        </div>        <div class="div-34">          <div class="div-35">            <div class="column-5">              <div class="div-36">                <div class="div-37">                  <div class="div-38">                    <div class="column">                      <div class="div-39">                        <div class="div-40"></div>                        <div class="div-41"></div>                      </div>                    </div>                    <div class="column-6">                      <div class="div-42">                        <div class="div-43"></div>                        <div class="div-44"></div>                      </div>                    </div>                    <div class="column-7">                      <div class="div-45">                        <div class="div-46"></div>                        <div class="div-47"></div>                      </div>                    </div>                    <div class="column-8">                      <div class="div-48">                        <div class="div-49"></div>                        <div class="div-50"></div>                      </div>                    </div>                  </div>                </div>              </div>            </div>            <div class="column-9">              <span class="span-16">                <div class="div-51">Top selling Products</div>                <div class="div-52"></div>              </span>            </div>          </div>        </div>        <div class="div-53">          <div class="div-54">            <div class="column-10">              <div class="div-55">                <span class="span-17">Stock Alert</span>                <span class="span-18">                  <div class="div-56">order ID</div>                  <div class="div-57">Date</div>                  <div class="div-58">Quantity</div>                  <div class="div-59">Alert amt.</div>                  <div class="div-60">Status</div>                </span>                <span class="span-19">                  <div class="div-61">order ID</div>                  <div class="div-62">Date</div>                  <div class="div-63">Quantity</div>                  <div class="div-64">Alert amt.</div>                  <div class="div-65">Status</div>                </span>                <span class="span-20">                  <div class="div-66">order ID</div>                  <div class="div-67">Date</div>                  <div class="div-68">Quantity</div>                  <div class="div-69">Alert amt.</div>                  <div class="div-70">Status</div>                </span>                <span class="span-21">                  <div class="div-71">order ID</div>                  <div class="div-72">Date</div>                  <div class="div-73">Quantity</div>                  <div class="div-74">Alert amt.</div>                  <div class="div-75">Status</div>                </span>              </div>            </div>            <div class="column-11">              <div class="div-76">                <span class="span-22">Top selling Products</span>                <span class="span-23">                  <div class="div-77">order ID</div>                  <div class="div-78">Quantity</div>                  <div class="div-79">Alert amt.</div>                </span>                <span class="span-24">                  <div class="div-80">order ID</div>                  <div class="div-81">Quantity</div>                  <div class="div-82">Alert amt.</div>                </span>                <span class="span-25">                  <div class="div-83">order ID</div>                  <div class="div-84">Quantity</div>                  <div class="div-85">Alert amt.</div>                </span>                <span class="span-26">                  <div class="div-86">order ID</div>                  <div class="div-87">Quantity</div>                  <div class="div-88">Alert amt.</div>                </span>              </div>            </div>          </div>        </div>      </div>    </div>  </div></div>'
+    var COMPONENTS = [{'name': 'AdminloginComponent', 'selector': 'app-adminlogin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StockComponent', 'selector': 'app-stock'},{'name': 'UsersComponent', 'selector': 'app-users'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DashboardComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DashboardComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

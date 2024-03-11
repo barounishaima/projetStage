@@ -1,0 +1,1100 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>stockmanajement documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">stockmanajement documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  LoginComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/login/login.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-login</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./login.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./login.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#loginform" >loginform</a>
+                            </li>
+                            <li>
+                                <a href="#users" >users</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#login" >login</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onsubmit" >onsubmit</a>
+                            </li>
+                            <li>
+                                <a href="#signup" >signup</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#email" >email</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: Router, UserService: <a href="../injectables/UserService.html" target="_self">UserService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/login/login.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>UserService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="login"></a>
+                    <span class="name">
+                        <span ><b>login</b></span>
+                        <a href="#login"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>login()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/app/login/login.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="19"
+                                    class="link-to-prism">src/app/login/login.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onsubmit"></a>
+                    <span class="name">
+                        <span ><b>onsubmit</b></span>
+                        <a href="#onsubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onsubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">src/app/login/login.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="signup"></a>
+                    <span class="name">
+                        <span ><b>signup</b></span>
+                        <a href="#signup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>signup()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/app/login/login.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loginform"></a>
+                    <span class="name">
+                        <span ><b>loginform</b></span>
+                        <a href="#loginform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    email:new FormControl(&#x27;&#x27;),
+      password:new FormControl (&#x27;&#x27;)
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/login/login.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="users"></a>
+                    <span class="name">
+                        <span ><b>users</b></span>
+                        <a href="#users"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/login/login.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="email"></a>
+                        <span class="name"><b>email</b><a href="#email"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>email()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/login/login.component.ts:25</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { UserService } from &#x27;../user.service&#x27;;
+import { FormControl, FormGroup,Validators } from &#x27;@angular/forms&#x27;;
+
+@Component({
+  selector: &#x27;app-login&#x27;,
+  templateUrl: &#x27;./login.component.html&#x27;,
+  styleUrls: [&#x27;./login.component.css&#x27;]
+})
+export class LoginComponent implements OnInit {
+  users:any[]&#x3D;[];
+  loginform &#x3D; new FormGroup({
+    email:new FormControl(&#x27;&#x27;),
+      password:new FormControl (&#x27;&#x27;)
+  })
+  
+constructor( private router:Router,private UserService:UserService){}
+ngOnInit(): void {
+    // this.UserService.setdata().subscribe((data: any[]) &#x3D;&gt; this.users &#x3D;data)
+    
+      
+    
+}
+public get email(){
+  return this.loginform.get(&#x27;email&#x27;);
+}
+
+signup(){
+  this.router.navigate([&#x27;/signup&#x27;]);
+}
+onsubmit(){
+  // this.UserService.setdata().subscribe()
+}
+
+login(): void {
+  if((this.UserService.getuserbyemail())&amp;&amp;(this.UserService.getuserbypassword())){
+    this.router.navigate([&#x27;/dashboard&#x27;]);}
+  else{
+      alert(&quot;Login ou mot de passe incorrect&quot;); 
+    }
+   
+  }
+ 
+
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">
+
+&lt;div class&#x3D;&quot;div&quot;&gt;
+    &lt;div class&#x3D;&quot;div-2&quot;&gt;
+      &lt;div class&#x3D;&quot;div-3&quot;&gt;
+        &lt;div class&#x3D;&quot;column&quot;&gt;
+          &lt;div class&#x3D;&quot;div-4&quot;&gt;
+            &lt;span class&#x3D;&quot;span&quot;&gt;
+              &lt;div class&#x3D;&quot;div-6&quot;&gt;Login&lt;/div&gt;
+            &lt;/span&gt; 
+            &lt;span class&#x3D;&quot;span-2&quot;&gt;  
+              &lt;form [formGroup]&#x3D;&quot;loginform&quot; &gt;
+              &lt;div class&#x3D;&quot;div-8&quot;&gt; 
+              &lt;/div&gt;
+             
+              &lt;span class&#x3D;&quot;span-4&quot;&gt;
+                &lt;div class&#x3D;&quot;div-10&quot;&gt;Email*&lt;/div&gt;
+                
+                 &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;span-5&quot; formControlName&#x3D;&quot;email&quot;&gt;&lt;/span&gt;
+              
+              &lt;span class&#x3D;&quot;span-6&quot;&gt;
+                &lt;div class&#x3D;&quot;div-11&quot;&gt;Password*&lt;/div&gt;
+                &lt;input type&#x3D;&quot;password&quot; class&#x3D;&quot;span-7&quot;  formControlName&#x3D;&quot;password&quot;&gt;
+              &lt;/span&gt;
+              &lt;span class&#x3D;&quot;span-8&quot;&gt;
+                &lt;span class&#x3D;&quot;span-9&quot;&gt;
+                  &lt;!-- &lt;div class&#x3D;&quot;div-12&quot;&gt;&lt;/div&gt; --&gt;
+                  &lt;a  class&#x3D;&quot;div-13&quot;&gt;&lt;input type&#x3D;&quot;checkbox&quot; &gt;Remember me&lt;/a&gt;
+                &lt;/span&gt;
+              &lt;/span&gt;
+              &lt;button class&#x3D;&quot;span-10&quot; type&#x3D;&quot;submit&quot; (click)&#x3D;&quot;login()&quot; &gt;Login&lt;/button&gt;
+            &lt;/form&gt;
+              &lt;div class&#x3D;&quot;div-15&quot;&gt;
+                &lt;span style&#x3D;&quot;color: rgba(19, 19, 19, 1)&quot;&gt;
+                  Not regestered yet?
+                &lt;/span&gt;
+                 &lt;a href&#x3D;&quot;&quot; (click)&#x3D;&quot;signup()&quot;&gt;Create a new account&lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;column-2&quot;&gt;
+          &lt;img
+            loading&#x3D;&quot;lazy&quot;
+            srcset&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+            class&#x3D;&quot;img-2&quot;
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+    
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./login.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">
+.div {
+    justify-content: center;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1),
+      0px 40px 87px 0px rgba(0, 0, 0, 0.1),
+      0px 159px 159px 0px rgba(0, 0, 0, 0.09),
+      1px 357px 214px 0px rgba(0, 0, 0, 0.05),
+      1px 635px 254px 0px rgba(0, 0, 0, 0.01),
+      2px 992px 278px 0px rgba(0, 0, 0, 0);
+    background-color: #edf0f2;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 55px;
+  }
+  @media (max-width: 991px) {
+    .div {
+      padding: 0 20px;
+    }
+  }
+  .div-2 {
+    justify-content: center;
+    border-radius: 5px;
+    background-color: #fff;
+    margin: 50px 0;
+    padding: 10px 20px 10px 10px;
+  }
+  @media (max-width: 991px) {
+    .div-2 {
+      max-width: 100%;
+      margin: 40px 0;
+    }
+  }
+  .div-3 {
+    gap: 20px;
+    display: flex;
+  }
+  @media (max-width: 991px) {
+    .div-3 {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0px;
+    }
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 35%;
+    margin-left: 0px;
+  }
+  @media (max-width: 991px) {
+    .column {
+      width: 100%;
+    }
+  }
+  .div-4 {
+    align-self: stretch;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 10px 10px 50px;
+  }
+  @media (max-width: 991px) {
+    .div-4 {
+      max-width: 100%;
+      margin-top: 30px;
+    }
+  }
+  .span {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    padding: 11px 15px;
+  }
+  @media (max-width: 991px) {
+    .span {
+      max-width: 100%;
+    }
+  }
+  .div-5 {
+    background-color: #94fcf6;
+    display: flex;
+    width: 172px;
+    height: 32px;
+    flex-direction: column;
+  }
+  .div-6 {
+    color: #000;
+    align-self: stretch;
+    margin-top: 29px;
+    font: 500 24px Poppins, sans-serif;
+  }
+  .div-7 {
+    color: rgba(0, 0, 0, 0.68);
+    align-self: stretch;
+    margin-top: 36px;
+    font: 500 15px Poppins, sans-serif;
+  }
+  .span-2 {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0 31px;
+    padding: 10px 10px 47px;
+  }
+  @media (max-width: 991px) {
+    .span-2 {
+      max-width: 100%;
+    }
+  }
+  .div-8 {
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 50px;
+    border: 1px solid #000;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 10px 60px;
+  }
+  @media (max-width: 991px) {
+    .div-8 {
+      padding: 0 20px;
+    }
+  }
+  .span-3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .div-9 {
+    color: #000;
+    flex-grow: 1;
+    white-space: nowrap;
+    margin: auto 0;
+    font: 400 12px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-9 {
+      white-space: initial;
+    }
+  }
+  .img {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 32px;
+    overflow: hidden;
+    align-self: stretch;
+    max-width: 100%;
+  }
+  .span-4 {
+    justify-content: center;
+    align-self: stretch;
+    display: flex;
+    margin-top: 15px;
+    flex-direction: column;
+    padding: 10px;
+  }
+  .div-10 {
+    color: #101540;
+    font: 400 16px Poppins, sans-serif;
+  }
+  .span-5 {
+    color: rgba(0, 0, 0, 0.68);
+    white-space: nowrap;
+    align-items: start;
+    border-radius: 5px;
+    border: 1px solid #8f8f8f;
+    background-color: #edf0f2;
+    margin-top: 5px;
+    justify-content: center;
+    padding: 19px 60px 19px 10px;
+    font: 400 15px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .span-5 {
+      white-space: initial;
+      padding-right: 20px;
+    }
+  }
+  .span-6 {
+    justify-content: center;
+    align-self: stretch;
+    display: flex;
+    margin-top: 5px;
+    flex-direction: column;
+    padding: 10px;
+  }
+  .div-11 {
+    color: #101540;
+    font: 400 16px Poppins, sans-serif;
+  }
+  .span-7 {
+    color: rgba(0, 0, 0, 0.68);
+    white-space: nowrap;
+    align-items: start;
+    border-radius: 5px;
+    border: 1px solid #8f8f8f;
+    background-color: #edf0f2;
+    margin-top: 5px;
+    justify-content: center;
+    padding: 19px 60px 19px 10px;
+    font: 400 15px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .span-7 {
+      white-space: initial;
+      padding-right: 20px;
+    }
+  }
+  .span-8 {
+    justify-content: space-between;
+    align-self: stretch;
+    display: flex;
+    margin-top: 15px;
+    width: 100%;
+    gap: 20px;
+    padding: 10px;
+  }
+  .span-9 {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .div-12 {
+    border-radius: 5px;
+    border: 1px solid #000;
+    display: flex;
+    width: 24px;
+    height: 24px;
+    flex-direction: column;
+  }
+  .div-13 {
+    color: #000;
+    margin: auto 0;
+    font: 400 16px Poppins, sans-serif;
+  }
+  .div-14 {
+    color: #101540;
+    flex: 1;
+    font: 500 16px Poppins, sans-serif;
+  }
+  .span-10 {
+    color: #fff;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 20px;
+    border: 1px solid #8f8f8f;
+    background-color: #101540;
+    margin-top: 15px;
+    padding: 19px 60px;
+    font: 400 15px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .span-10 {
+      white-space: initial;
+      padding: 0 20px;
+    }
+  }
+  .div-15 {
+    color: #101540;
+    align-self: start;
+    white-space: nowrap;
+    margin: 25px 0 0 10px;
+    font: 500 16px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-15 {
+      white-space: initial;
+    }
+  }
+  .column-2 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 65%;
+    margin-left: 20px;
+  }
+  @media (max-width: 991px) {
+    .column-2 {
+      width: 100%;
+    }
+  }
+  .img-2 {
+    aspect-ratio: 1.06;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    align-self: stretch;
+    overflow: hidden;
+    margin: auto 0;
+  }
+  @media (max-width: 901px) {
+    .img-2 {
+      max-width: 90%;
+      margin-top: 40px;
+      margin-left: 50px;
+    }
+  }
+ 
+ </code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="div">    <div class="div-2">      <div class="div-3">        <div class="column">          <div class="div-4">            <span class="span">              <div class="div-6">Login</div>            </span>             <span class="span-2">                <form [formGroup]="loginform" >              <div class="div-8">               </div>                           <span class="span-4">                <div class="div-10">Email*</div>                                 <input type="text" class="span-5" formControlName="email"></span>                            <span class="span-6">                <div class="div-11">Password*</div>                <input type="password" class="span-7"  formControlName="password">              </span>              <span class="span-8">                <span class="span-9">                  <!-- <div class="div-12"></div> -->                  <a  class="div-13"><input type="checkbox" >Remember me</a>                </span>              </span>              <button class="span-10" type="submit" (click)="login()" >Login</button>            </form>              <div class="div-15">                <span style="color: rgba(19, 19, 19, 1)">                  Not regestered yet?                </span>                 <a href="" (click)="signup()">Create a new account</a>              </div>            </span>          </div>        </div>        <div class="column-2">          <img            loading="lazy"            srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/8673db758558ce5863db21451d18e6c2df693ee65a6c2af173b53ef47f96b833?apiKey=45c9b4f65b804397b2aa4f0822d27229&"            class="img-2"          />        </div>      </div>    </div>  </div>    </div>'
+    var COMPONENTS = [{'name': 'AdminloginComponent', 'selector': 'app-adminlogin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StockComponent', 'selector': 'app-stock'},{'name': 'UsersComponent', 'selector': 'app-users'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

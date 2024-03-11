@@ -1,0 +1,1771 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>stockmanajement documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">stockmanajement documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SignupComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/signup/signup.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-signup</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./signup.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./signup.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#signup" >signup</a>
+                            </li>
+                            <li>
+                                <a href="#users" >users</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isvalidemail" >isvalidemail</a>
+                            </li>
+                            <li>
+                                <a href="#isvalidfirstname" >isvalidfirstname</a>
+                            </li>
+                            <li>
+                                <a href="#isvalidlastname" >isvalidlastname</a>
+                            </li>
+                            <li>
+                                <a href="#isvalidpassword" >isvalidpassword</a>
+                            </li>
+                            <li>
+                                <a href="#isvalidphonenumber" >isvalidphonenumber</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onsubmit" >onsubmit</a>
+                            </li>
+                            <li>
+                                <a href="#patternemail" >patternemail</a>
+                            </li>
+                            <li>
+                                <a href="#patternfirstname" >patternfirstname</a>
+                            </li>
+                            <li>
+                                <a href="#patternlastname" >patternlastname</a>
+                            </li>
+                            <li>
+                                <a href="#patternphonenumber" >patternphonenumber</a>
+                            </li>
+                            <li>
+                                <a href="#relog" >relog</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#firstname" >firstname</a>
+                                </li>
+                                <li>
+                                    <a href="#lastname" >lastname</a>
+                                </li>
+                                <li>
+                                    <a href="#email" >email</a>
+                                </li>
+                                <li>
+                                    <a href="#phonenumber" >phonenumber</a>
+                                </li>
+                                <li>
+                                    <a href="#password" >password</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, router: Router, userService: <a href="../injectables/UserService.html" target="_self">UserService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/signup/signup.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isvalidemail"></a>
+                    <span class="name">
+                        <span ><b>isvalidemail</b></span>
+                        <a href="#isvalidemail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isvalidemail()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/app/signup/signup.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isvalidfirstname"></a>
+                    <span class="name">
+                        <span ><b>isvalidfirstname</b></span>
+                        <a href="#isvalidfirstname"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isvalidfirstname()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/app/signup/signup.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isvalidlastname"></a>
+                    <span class="name">
+                        <span ><b>isvalidlastname</b></span>
+                        <a href="#isvalidlastname"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isvalidlastname()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/signup/signup.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isvalidpassword"></a>
+                    <span class="name">
+                        <span ><b>isvalidpassword</b></span>
+                        <a href="#isvalidpassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isvalidpassword()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">src/app/signup/signup.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isvalidphonenumber"></a>
+                    <span class="name">
+                        <span ><b>isvalidphonenumber</b></span>
+                        <a href="#isvalidphonenumber"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isvalidphonenumber()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/signup/signup.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="17"
+                                    class="link-to-prism">src/app/signup/signup.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onsubmit"></a>
+                    <span class="name">
+                        <span ><b>onsubmit</b></span>
+                        <a href="#onsubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onsubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/signup/signup.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="patternemail"></a>
+                    <span class="name">
+                        <span ><b>patternemail</b></span>
+                        <a href="#patternemail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>patternemail()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/signup/signup.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="patternfirstname"></a>
+                    <span class="name">
+                        <span ><b>patternfirstname</b></span>
+                        <a href="#patternfirstname"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>patternfirstname()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/signup/signup.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="patternlastname"></a>
+                    <span class="name">
+                        <span ><b>patternlastname</b></span>
+                        <a href="#patternlastname"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>patternlastname()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/signup/signup.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="patternphonenumber"></a>
+                    <span class="name">
+                        <span ><b>patternphonenumber</b></span>
+                        <a href="#patternphonenumber"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>patternphonenumber()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/app/signup/signup.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="relog"></a>
+                    <span class="name">
+                        <span ><b>relog</b></span>
+                        <a href="#relog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>relog()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/app/signup/signup.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="signup"></a>
+                    <span class="name">
+                        <span ><b>signup</b></span>
+                        <a href="#signup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/signup/signup.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="users"></a>
+                    <span class="name">
+                        <span ><b>users</b></span>
+                        <a href="#users"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/User.html" target="_self" >User[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/signup/signup.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="firstname"></a>
+                        <span class="name"><b>firstname</b><a href="#firstname"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>firstname()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/signup/signup.component.ts:32</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lastname"></a>
+                        <span class="name"><b>lastname</b><a href="#lastname"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>lastname()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/signup/signup.component.ts:35</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="email"></a>
+                        <span class="name"><b>email</b><a href="#email"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>email()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/signup/signup.component.ts:38</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="phonenumber"></a>
+                        <span class="name"><b>phonenumber</b><a href="#phonenumber"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>phonenumber()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/signup/signup.component.ts:41</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="password"></a>
+                        <span class="name"><b>password</b><a href="#password"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>password()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/signup/signup.component.ts:44</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { UserService } from &#x27;../user.service&#x27;;
+import { FormBuilder, FormControl, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import{User} from &#x27;../user&#x27;;
+@Component({
+  selector: &#x27;app-signup&#x27;,
+  templateUrl: &#x27;./signup.component.html&#x27;,
+  styleUrls: [&#x27;./signup.component.css&#x27;]
+})
+export class SignupComponent implements OnInit {
+  users! : User[];
+  signup! : FormGroup;
+  constructor(private fb:FormBuilder, private router:Router,private userService:UserService){
+  
+  }
+  ngOnInit(): void {
+          
+    this.signup &#x3D; this.fb.group({
+      firstname: [&#x27;&#x27;, [Validators.required, Validators.pattern(&#x27;^[a-zA-Z]+$&#x27;)]],
+      lastname: [&#x27;&#x27;, [Validators.required, Validators.pattern(&#x27;^[a-zA-Z]+$&#x27;)]],
+      email: [&#x27;&#x27;, [Validators.required, Validators.pattern(&#x27;[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}&#x27;)]],
+      phonenumber: [&#x27;&#x27;, [Validators.required, Validators.maxLength(8), Validators.minLength(8)]],
+      password: [&#x27;&#x27;, Validators.required],
+    });
+    
+    
+    }
+    relog(){
+      this.router.navigate([&#x27;/login&#x27;]);}
+
+    public get firstname(){
+      return this.signup.get(&#x27;firstname&#x27;);
+    }
+    public get lastname(){
+      return this.signup.get(&#x27;lastname&#x27;);
+    }
+    public get email(){
+      return this.signup.get(&#x27;email&#x27;);
+    }
+    public get phonenumber(){
+      return this.signup.get(&#x27;phonenumber&#x27;);
+    }
+    public get password(){
+      return this.signup.get(&#x27;password&#x27;);
+    }
+    isvalidfirstname(){
+      return this.firstname?.errors?.[&#x27;required&#x27;] &amp;&amp; this.firstname?.touched;
+    }
+    patternfirstname(){
+      return this.firstname?.errors?.[&#x27;pattern&#x27;] &amp;&amp; this.firstname?.touched;
+    }
+    isvalidlastname(){
+      return this.lastname?.errors?.[&#x27;required&#x27;] &amp;&amp; this.lastname?.touched;
+    }
+    patternlastname(){
+     return this.lastname?.errors?.[&#x27;pattern&#x27;] &amp;&amp; this.lastname?.touched;
+    }
+    isvalidemail(){
+      return this.email?.errors?.[&#x27;required&#x27;] &amp;&amp; this.email?.touched;
+    }
+    patternemail(){
+      return this.email?.errors?.[&#x27;pattern&#x27;] &amp;&amp; this.email?.touched;
+    }
+    isvalidphonenumber(){
+      return this.phonenumber?.errors?.[&#x27;required&#x27;] &amp;&amp; this.phonenumber?.touched;
+    }
+    patternphonenumber(){
+      return this.phonenumber?.errors?.[&#x27;maxLength&#x27;] &amp;&amp; this.phonenumber?.touched;
+    }
+    isvalidpassword(){
+      return this.password?.errors?.[&#x27;required&#x27;] &amp;&amp; this.password?.touched;
+    }
+    onsubmit(){
+      
+      const newUser: User &#x3D; {
+         firstname: this.firstname?.value,
+        lastname: this.lastname?.value,
+    email: this.email?.value,
+    phonenumber: this.phonenumber?.value,
+    password: this.password?.value,
+  };
+       this.userService.adduser(newUser).subscribe(addedUser &#x3D;&gt;{console.log(&#x27;User added &#x27;, addedUser);})
+       this.userService.addUserToArray(newUser);
+      this.router.navigate([&#x27;/login&#x27;]);
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;div&quot;&gt;
+    &lt;div class&#x3D;&quot;div-2&quot;&gt;
+      &lt;div class&#x3D;&quot;div-3&quot;&gt;
+        &lt;div class&#x3D;&quot;column&quot;&gt;
+          &lt;img
+            loading&#x3D;&quot;lazy&quot;
+            srcset&#x3D;&quot;https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;width&#x3D;2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey&#x3D;45c9b4f65b804397b2aa4f0822d27229&amp;&quot;
+            class&#x3D;&quot;img&quot;
+          /&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;column-2&quot;&gt;
+          &lt;div class&#x3D;&quot;div-4&quot;&gt;
+            &lt;span class&#x3D;&quot;span&quot;&gt;
+             
+              &lt;div class&#x3D;&quot;div-6&quot;&gt;Register&lt;/div&gt;
+              &lt;div class&#x3D;&quot;div-7&quot;&gt;Manage all your inventory efficiently&lt;/div&gt;
+              &lt;div class&#x3D;&quot;div-8&quot;&gt;
+                Let’s get you all set up so you can verify your personal
+                account and begin setting up your work
+              &lt;/div&gt;
+            &lt;/span&gt;
+            
+            &lt;form action&#x3D;&quot;&quot;  [formGroup]&#x3D;&quot;signup&quot;  (onsubmit)&#x3D;&quot;onsubmit()&quot;&gt;
+            &lt;span class&#x3D;&quot;span-2&quot;&gt;
+              &lt;div class&#x3D;&quot;div-9&quot;&gt;
+                &lt;div class&#x3D;&quot;div-10&quot;&gt;
+                  &lt;div class&#x3D;&quot;column-3&quot;&gt;
+                    &lt;span class&#x3D;&quot;span-3&quot;&gt;
+                      &lt;div class&#x3D;&quot;div-11&quot;&gt;First name&lt;/div&gt;
+                      &lt;input class&#x3D;&quot;span-4 form-control&quot; placeholder&#x3D;&quot;Enter your firstname&quot; formControlName&#x3D;&quot;firstname&quot; &gt;
+                      &lt;div *ngIf&#x3D;&quot;isvalidfirstname()&quot; class&#x3D;&quot;alert alert-warning&quot;&gt;the first name is required  &lt;/div&gt;
+                      &lt;div *ngIf&#x3D;&quot;patternfirstname()&quot;&gt;the first name should be all caracteres&lt;/div&gt;
+                    &lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;column-4&quot;&gt;
+                    &lt;span class&#x3D;&quot;span-5&quot;&gt;
+                      &lt;div class&#x3D;&quot;div-12&quot;&gt;Last name&lt;/div&gt;
+                      &lt;input class&#x3D;&quot;span-6 form-control&quot; placeholder&#x3D;&quot;enter your lastname&quot; formControlName&#x3D;&quot;lastname&quot;&gt;
+                      &lt;div *ngIf&#x3D;&quot;isvalidlastname()&quot; class&#x3D;&quot;alert alert-warning&quot;&gt;the last name is required  &lt;/div&gt;
+                      &lt;div *ngIf&#x3D;&quot;patternlastname()&quot;&gt;the last name should be all caracteres&lt;/div&gt;
+                    &lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;div-13&quot;&gt;
+                &lt;div class&#x3D;&quot;div-14&quot;&gt;
+                  &lt;div class&#x3D;&quot;column-5&quot;&gt;
+                    &lt;span class&#x3D;&quot;span-7&quot;&gt;
+                      &lt;div class&#x3D;&quot;div-15&quot;&gt;Email&lt;/div&gt;
+                      &lt;input class&#x3D;&quot;span-8 form-control&quot; placeholder&#x3D;&quot;Enter your email&quot; formControlName&#x3D;&quot;email&quot;&gt;
+                      &lt;div *ngIf&#x3D;&quot;isvalidemail()&quot; class&#x3D;&quot;alert alert-warning&quot;&gt;the email is required  &lt;/div&gt;
+                      &lt;div *ngIf&#x3D;&quot;patternemail()&quot;&gt;the email format is not valid&lt;/div&gt;
+                    &lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;column-6&quot;&gt;
+                    &lt;span class&#x3D;&quot;span-9&quot;&gt;
+                      &lt;div class&#x3D;&quot;div-16&quot;&gt;Phone number&lt;/div&gt;
+                      &lt;input class&#x3D;&quot;span-10 form-control&quot; placeholder&#x3D;&quot;enter your phone number&quot; formControlName&#x3D;&quot;phonenumber&quot;&gt;
+                      &lt;div *ngIf&#x3D;&quot;isvalidphonenumber()&quot; class&#x3D;&quot;alert alert-warning&quot;&gt;the phone number is required  &lt;/div&gt;
+                      &lt;div *ngIf&#x3D;&quot;patternphonenumber()&quot;&gt;the phone number should be 8 digits&lt;/div&gt;
+                    &lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;span class&#x3D;&quot;span-11&quot;&gt;
+                &lt;div class&#x3D;&quot;div-17&quot;&gt;Password&lt;/div&gt;
+                &lt;input class&#x3D;&quot;span-12 form-control&quot; placeholder&#x3D;&quot;Enter your Password&quot; formControlName&#x3D;&quot;password&quot;&gt;
+              &lt;/span&gt;
+              &lt;span class&#x3D;&quot;span-13&quot;&gt;
+                
+                &lt;input class&#x3D;&quot;div-19&quot; type&#x3D;&quot;checkbox&quot;&gt;
+                  I agree to all terms, privacy policies, and fees
+              &lt;/span&gt;
+              &lt;button class&#x3D;&quot;span-14&quot; (click)&#x3D;&#x27;onsubmit()&#x27;&gt;Sign up&lt;/button&gt;
+              &lt;div class&#x3D;&quot;div-20&quot;&gt;
+                 &lt;a href&#x3D;&quot;&quot; style&#x3D;&quot;color: rgba(19, 19, 19, 1)&quot; (click)&#x3D;&quot;relog()&quot;&gt; 
+                  Already have an account?
+                &lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/span&gt;
+          &lt;/form&gt;
+        
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./signup.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.div {
+    justify-content: center;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1),
+      0px 40px 87px 0px rgba(0, 0, 0, 0.1),
+      0px 159px 159px 0px rgba(0, 0, 0, 0.09),
+      1px 357px 214px 0px rgba(0, 0, 0, 0.05),
+      1px 635px 254px 0px rgba(0, 0, 0, 0.01),
+      2px 992px 278px 0px rgba(0, 0, 0, 0);
+    background-color: #edf0f2;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 55px;
+  }
+  @media (max-width: 991px) {
+    .div {
+      padding: 0 20px;
+    }
+  }
+  .div-2 {
+    border-radius: 5px;
+    background-color: #fff;
+    margin: 50px 0;
+    padding: 10px 10px 10px 20px;
+  }
+  @media (max-width: 991px) {
+    .div-2 {
+      max-width: 100%;
+      margin: 40px 0;
+    }
+  }
+  .div-3 {
+    gap: 20px;
+    display: flex;
+  }
+  @media (max-width: 991px) {
+    .div-3 {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0px;
+    }
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 39%;
+    margin-left: 0px;
+  }
+  @media (max-width: 991px) {
+    .column {
+      width: 100%;
+    }
+  }
+  .img {
+    aspect-ratio: 0.65;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    align-self: stretch;
+    overflow: hidden;
+    margin: auto 0;
+  }
+  @media (max-width: 991px) {
+    .img {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  }
+  .column-2 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 61%;
+    margin-left: 20px;
+  }
+  @media (max-width: 991px) {
+    .column-2 {
+      width: 100%;
+    }
+  }
+  .div-4 {
+    align-self: stretch;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 10px 10px 1px;
+  }
+  @media (max-width: 991px) {
+    .div-4 {
+      max-width: 100%;
+      margin-top: 30px;
+    }
+  }
+  .span {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    padding: 11px 10px;
+  }
+  @media (max-width: 991px) {
+    .span {
+      max-width: 100%;
+    }
+  }
+  .div-5 {
+    background-color: #94fcf6;
+    align-self: start;
+    display: flex;
+    width: 32px;
+    height: 32px;
+    flex-direction: column;
+  }
+  .div-6 {
+    color: #101540;
+    align-self: stretch;
+    margin-top: 29px;
+    font: 500 24px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-6 {
+      max-width: 100%;
+    }
+  }
+  .div-7 {
+    color: #101540;
+    align-self: stretch;
+    margin-top: 44px;
+    font: 500 15px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-7 {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  }
+  .div-8 {
+    color: rgba(0, 0, 0, 0.68);
+    align-self: stretch;
+    margin-top: 12px;
+    font: 500 15px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-8 {
+      max-width: 100%;
+    }
+  }
+  .span-2 {
+    justify-content: center;
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+    padding: 0 10px 10px;
+  }
+  @media (max-width: 991px) {
+    .span-2 {
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .div-9 {
+      max-width: 100%;
+    }
+  }
+  .div-10 {
+    gap: 20px;
+    display: flex;
+  }
+  @media (max-width: 991px) {
+    .div-10 {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0px;
+    }
+  }
+  .column-3 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 50%;
+    margin-left: 0px;
+  }
+  @media (max-width: 991px) {
+    .column-3 {
+      width: 100%;
+    }
+  }
+  .span-3 {
+    justify-content: center;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 10px;
+  }
+  @media (max-width: 991px) {
+    .span-3 {
+      margin-top: 5px;
+    }
+  }
+  .div-11 {
+    color: #101540;
+    font: 400 16px Poppins, sans-serif;
+  }
+  .span-4 {
+    color: rgba(0, 0, 0, 0.68);
+    white-space: nowrap;
+    align-items: start;
+    border-radius: 5px;
+    border: 1px solid #8f8f8f;
+    background-color: #edf0f2;
+    margin-top: 5px;
+    justify-content: center;
+    padding: 19px 60px 19px 10px;
+    font: 400 15px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .span-4 {
+      white-space: initial;
+      padding-right: 20px;
+    }
+  }
+  .column-4 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 50%;
+    margin-left: 20px;
+  }
+  @media (max-width: 991px) {
+    .column-4 {
+      width: 100%;
+    }
+  }
+  .span-5 {
+    justify-content: center;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 10px;
+  }
+  @media (max-width: 991px) {
+    .span-5 {
+      margin-top: 5px;
+    }
+  }
+  .div-12 {
+    color: #101540;
+    font: 400 16px Poppins, sans-serif;
+  }
+  .span-6 {
+    color: rgba(0, 0, 0, 0.68);
+    white-space: nowrap;
+    align-items: start;
+    border-radius: 5px;
+    border: 1px solid #8f8f8f;
+    background-color: #edf0f2;
+    margin-top: 5px;
+    justify-content: center;
+    padding: 19px 60px 19px 10px;
+    font: 400 15px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .span-6 {
+      white-space: initial;
+      padding-right: 20px;
+    }
+  }
+  .div-13 {
+    margin-top: 15px;
+  }
+  @media (max-width: 991px) {
+    .div-13 {
+      max-width: 100%;
+    }
+  }
+  .div-14 {
+    gap: 20px;
+    display: flex;
+  }
+  @media (max-width: 991px) {
+    .div-14 {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0px;
+    }
+  }
+  .column-5 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 50%;
+    margin-left: 0px;
+  }
+  @media (max-width: 991px) {
+    .column-5 {
+      width: 100%;
+    }
+  }
+  .span-7 {
+    justify-content: center;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 10px;
+  }
+  @media (max-width: 991px) {
+    .span-7 {
+      margin-top: 5px;
+    }
+  }
+  .div-15 {
+    color: #101540;
+    font: 400 16px Poppins, sans-serif;
+  }
+  .span-8 {
+    color: rgba(0, 0, 0, 0.68);
+    white-space: nowrap;
+    align-items: start;
+    border-radius: 5px;
+    border: 1px solid #8f8f8f;
+    background-color: #edf0f2;
+    margin-top: 5px;
+    justify-content: center;
+    padding: 19px 60px 19px 10px;
+    font: 400 15px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .span-8 {
+      white-space: initial;
+      padding-right: 20px;
+    }
+  }
+  .column-6 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 50%;
+    margin-left: 20px;
+  }
+  @media (max-width: 991px) {
+    .column-6 {
+      width: 100%;
+    }
+  }
+  .span-9 {
+    justify-content: center;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 10px;
+  }
+  @media (max-width: 991px) {
+    .span-9 {
+      margin-top: 5px;
+    }
+  }
+  .div-16 {
+    color: #101540;
+    font: 400 16px Poppins, sans-serif;
+  }
+  .span-10 {
+    color: rgba(0, 0, 0, 0.68);
+    white-space: nowrap;
+    align-items: start;
+    border-radius: 5px;
+    border: 1px solid #8f8f8f;
+    background-color: #edf0f2;
+    margin-top: 5px;
+    justify-content: center;
+    padding: 19px 60px 19px 10px;
+    font: 400 15px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .span-10 {
+      white-space: initial;
+      padding-right: 20px;
+    }
+  }
+  .span-11 {
+    justify-content: center;
+    display: flex;
+    margin-top: 15px;
+    flex-direction: column;
+    padding: 10px;
+  }
+  @media (max-width: 991px) {
+    .span-11 {
+      max-width: 100%;
+    }
+  }
+  .div-17 {
+    color: #101540;
+    font: 400 16px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-17 {
+      max-width: 100%;
+    }
+  }
+  .span-12 {
+    color: rgba(0, 0, 0, 0.68);
+    white-space: nowrap;
+    align-items: start;
+    border-radius: 5px;
+    border: 1px solid #8f8f8f;
+    background-color: #edf0f2;
+    margin-top: 5px;
+    justify-content: center;
+    padding: 19px 60px 19px 10px;
+    font: 400 15px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .span-12 {
+      white-space: initial;
+      max-width: 100%;
+      padding-right: 20px;
+    }
+  }
+  .span-13 {
+    align-self: start;
+    display: flex;
+    gap: 16px;
+    margin: 25px 0 0 10px;
+  }
+  .div-18 {
+    border-radius: 5px;
+    border: 1px solid #000;
+    display: flex;
+    width: 24px;
+    height: 24px;
+    flex-direction: column;
+  }
+  .div-19 {
+    color: #101540;
+    align-self: start;
+    margin-top: 6px;
+    flex-grow: 1;
+    white-space: nowrap;
+    font: 400 16px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-19 {
+      white-space: initial;
+    }
+  }
+  .span-14 {
+    color: #fff;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid #8f8f8f;
+    background-color: #101540;
+    align-self: start;
+    margin-top: 25px;
+    width: 247px;
+    max-width: 100%;
+    padding: 19px 60px;
+    font: 400 15px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .span-14 {
+      white-space: initial;
+      padding: 0 20px;
+    }
+  }
+  .div-20 {
+    color: #101540;
+    align-self: start;
+    white-space: nowrap;
+    margin: 25px 0 0 10px;
+    font: 500 16px Poppins, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-20 {
+      white-space: initial;
+    }
+  }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="div">    <div class="div-2">      <div class="div-3">        <div class="column">          <img            loading="lazy"            srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&"            class="img"          />        </div>        <div class="column-2">          <div class="div-4">            <span class="span">                           <div class="div-6">Register</div>              <div class="div-7">Manage all your inventory efficiently</div>              <div class="div-8">                Let’s get you all set up so you can verify your personal                account and begin setting up your work              </div>            </span>                        <form action=""  [formGroup]="signup"  (onsubmit)="onsubmit()">            <span class="span-2">              <div class="div-9">                <div class="div-10">                  <div class="column-3">                    <span class="span-3">                      <div class="div-11">First name</div>                      <input class="span-4 form-control" placeholder="Enter your firstname" formControlName="firstname" >                      <div *ngIf="isvalidfirstname()" class="alert alert-warning">the first name is required  </div>                      <div *ngIf="patternfirstname()">the first name should be all caracteres</div>                    </span>                  </div>                  <div class="column-4">                    <span class="span-5">                      <div class="div-12">Last name</div>                      <input class="span-6 form-control" placeholder="enter your lastname" formControlName="lastname">                      <div *ngIf="isvalidlastname()" class="alert alert-warning">the last name is required  </div>                      <div *ngIf="patternlastname()">the last name should be all caracteres</div>                    </span>                  </div>                </div>              </div>              <div class="div-13">                <div class="div-14">                  <div class="column-5">                    <span class="span-7">                      <div class="div-15">Email</div>                      <input class="span-8 form-control" placeholder="Enter your email" formControlName="email">                      <div *ngIf="isvalidemail()" class="alert alert-warning">the email is required  </div>                      <div *ngIf="patternemail()">the email format is not valid</div>                    </span>                  </div>                  <div class="column-6">                    <span class="span-9">                      <div class="div-16">Phone number</div>                      <input class="span-10 form-control" placeholder="enter your phone number" formControlName="phonenumber">                      <div *ngIf="isvalidphonenumber()" class="alert alert-warning">the phone number is required  </div>                      <div *ngIf="patternphonenumber()">the phone number should be 8 digits</div>                    </span>                  </div>                </div>              </div>              <span class="span-11">                <div class="div-17">Password</div>                <input class="span-12 form-control" placeholder="Enter your Password" formControlName="password">              </span>              <span class="span-13">                                <input class="div-19" type="checkbox">                  I agree to all terms, privacy policies, and fees              </span>              <button class="span-14" (click)=\'onsubmit()\'>Sign up</button>              <div class="div-20">                 <a href="" style="color: rgba(19, 19, 19, 1)" (click)="relog()">                   Already have an account?                </a>              </div>            </span>          </form>                  </div>        </div>      </div>    </div>  </div></div>'
+    var COMPONENTS = [{'name': 'AdminloginComponent', 'selector': 'app-adminlogin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StockComponent', 'selector': 'app-stock'},{'name': 'UsersComponent', 'selector': 'app-users'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SignupComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SignupComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

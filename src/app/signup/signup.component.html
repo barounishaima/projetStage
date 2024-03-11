@@ -1,0 +1,86 @@
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">">
+</head>
+<div class="div">
+    <div class="div-2">
+      <div class="div-3">
+        <div class="column">
+          <img
+            loading="lazy"
+            srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/28d2f6e019f85f2d09c3ef1f6766b4126f8286a611684396b382fe4ee8000289?apiKey=45c9b4f65b804397b2aa4f0822d27229&"
+            class="img"
+          />
+        </div>
+        <div class="column-2">
+          <div class="div-4">
+            <span class="span">
+             
+              <div class="div-6">Register</div>
+              <div class="div-7">Manage all your inventory efficiently</div>
+              <div class="div-8">
+                Let’s get you all set up so you can verify your personal
+                account and begin setting up your work
+              </div>
+            </span>
+            
+            <form action=""  [formGroup]="signup"  (onsubmit)="onsubmit()">
+            <span class="span-2">
+              <div class="div-9">
+                <div class="div-10">
+                  <div class="column-3">
+                    <span class="span-3">
+                      <div class="div-11">First name</div>
+                      <input class="span-4 form-control" placeholder="Enter your firstname" formControlName="firstname" >
+                      <div *ngIf="isvalidfirstname()" class="alert alert-danger">the first name is required  </div>
+                      <div *ngIf="patternfirstname()" class="alert alert-warning">the first name should be all caracteres</div>
+                    </span>
+                  </div>
+                  <div class="column-4">
+                    <span class="span-5">
+                      <div class="div-12">Last name</div>
+                      <input class="span-6 form-control" placeholder="enter your lastname" formControlName="lastname">
+                      <div *ngIf="isvalidlastname()" class="alert alert-danger">the last name is required  </div>
+                      <div *ngIf="patternlastname()" class="alert alert-warning">the last name should be all caracteres</div>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="div-13">
+                <div class="div-14">
+                  <div class="column-5">
+                    <span class="span-7">
+                      <div class="div-15">Email</div>
+                      <input class="span-8 form-control" placeholder="Enter your email" formControlName="email">
+                      <div *ngIf="isvalidemail()" class="alert alert-danger">the email is required  </div>
+                      <div *ngIf="patternemail()" class="alert alert-warning">the email format is not valid</div>
+                    </span>
+                  </div>
+                  <div class="column-6">
+                    <span class="span-9">
+                      <div class="div-16">Phone number</div>
+                      <input class="span-10 form-control" placeholder="enter your phone number" formControlName="phonenumber">
+                      <div *ngIf="isvalidphonenumber()" class="alert alert-danger">the phone number is required  </div>
+                      <div *ngIf="patternphonenumber()" class="alert alert-warning">the phone number should be 8 digits</div>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <span class="span-11">
+                <div class="div-17">Password</div>
+                <input class="span-12 form-control" type="password" placeholder="Enter your Password" formControlName="password">
+              </span>
+              <button class="span-14" (click)='onsubmit()'>Sign up</button>
+              <div class="div-20">
+                 <a href="" style="color: rgba(19, 19, 19, 1)" (click)="relog()"> 
+                  Already have an account?
+                </a>
+              </div>
+            </span>
+          </form>
+        
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
